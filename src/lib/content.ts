@@ -89,24 +89,24 @@ export const FOUNDER_STATS = [
 
 export const PAIN_POINTS = [
   {
-    bold: "First-time visitors search for you Saturday night,",
-    rest: "& whatever they find decides whether they show up Sunday morning. Right now, what they find isn't doing your ministry justice.",
+    bold: "Your sermon clips do well on Instagram,",
+    rest: "but your website looks like nobody's touched it since 2019.",
   },
   {
-    bold: "Your site looks 10+ years old",
-    rest: "& it's broken on mobile, where 87% of first-time visitors actually find you.",
+    bold: "Visitors land on your homepage, can't find what they need in 10 seconds, & bounce —",
+    rest: "service times, episode archives, ways to give, ways to get involved.",
   },
   {
-    bold: "Web agencies quote $10K-25K & 4 months",
-    rest: "for budgets ministries simply don't have.",
+    bold: "Your Linktree is doing the work your website should be doing, & failing —",
+    rest: "eight links, no story, no path forward, no way for a stranger to become a follower.",
   },
   {
-    bold: "Wix & Squarespace templates aren't built for ministry,",
-    rest: "no real sermon library, no plan-a-visit, no one-tap giving.",
+    bold: "You've outgrown your DIY Wix or Squarespace template,",
+    rest: "but a real rebuild feels like a four-month project you don't have time for.",
   },
   {
-    bold: "There's no tech person at the church",
-    rest: "to update, fix, or manage anything ongoing. So nothing changes.",
+    bold: "Your podcast, YouTube, or social presence is growing fast —",
+    rest: "but you have no central home where casual listeners become committed members, supporters, partners.",
   },
 ];
 
