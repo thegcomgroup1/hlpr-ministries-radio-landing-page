@@ -59,16 +59,12 @@ export const MINISTRY_PORTFOLIO = [
 ];
 
 export const HERO = {
-  eyebrow: "For senior pastors & church communications teams",
-  // Headline formula: outcome-pair (kingdom + bottom-line) + timeframe
-  // "More souls reached" carries the discipleship/eternal weight.
-  // "More seats filled" carries the tithe/seats/reach weight.
-  // Together they're inseparable, which mirrors the ministry truth.
+  eyebrow: "For pastors, ministry leaders & creator-ministers",
   headline: {
-    pre: "More souls reached. More seats filled.",
+    pre: "Reach more souls. Grow your ministry.",
     bold: "Live in 14 days.",
   },
-  sub: "Your worship is alive. Your preaching is anointed. Your website should match. We build modern, mobile-first ministry sites that turn Saturday-night searches into Wednesday-night faith — with a free homepage preview in 72 hours.",
+  sub: "Your message lands. Your community is growing. Your website should keep up. We build modern, mobile-first sites for ministries — local congregations, digital communities, and creator-pastors building reach across both — with a free custom homepage preview in 72 hours.",
   trust: [
     "Free preview in 72 hours",
     "No payment until you approve",
