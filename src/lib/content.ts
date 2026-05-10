@@ -278,6 +278,7 @@ export const FOUNDER = {
   story: [
     "I've been in God's house for as long as I can remember. From ushering at small congregations to running production at mega-churches with dozens of campuses, I've seen ministry from every angle — & I've seen what a broken website does to a powerful Sunday service.",
     "In 2019, I left the corporate world to build companies full-time. The last 7 years I've spent helping brands craft credible online presence & scale past 7 figures using proven digital marketing systems — the same systems I now bring to ministry.",
+    "Today HLPR serves ministries across the full spectrum — established congregations rebuilding their digital front door, podcast pastors needing to legitimize their growing audience, creator-ministers turning a social following into a sustainable community. The mission is the same: help the message reach the souls God's pointing toward it.",
     "In Scripture, the Holy Spirit is called our Helper — the One who walks with us, advocates for us, makes us victorious in the Christian life. That's what HLPR was named for. That's what we're called to be for ministries: a helper, a resource, a trusted hand for the work God has put in front of you.",
     "I'd be honored to build yours.",
   ],
