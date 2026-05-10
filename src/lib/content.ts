@@ -362,24 +362,36 @@ export const FINAL_CTA = {
 
 export const FAQS = [
   {
-    q: "Does this work for non-denominational, mainline, charismatic, or Spanish-language churches?",
-    a: "Yes. We've designed HLPR for Ministries to feel like home for non-denom, evangelical, mainline, charismatic, & Spanish-speaking congregations alike. Your site is custom-built to reflect your specific ministry's voice, language, & visual identity, never a one-size-fits-all template.",
+    q: "Does this work for non-denominational, mainline, charismatic, or Spanish-language ministries?",
+    a: "Yes. We've designed HLPR for Ministries to feel like home for non-denom, evangelical, mainline, charismatic, & Spanish-speaking communities alike. Your site is custom-built to reflect your specific ministry's voice, language, & visual identity, never a one-size-fits-all template.",
   },
   {
-    q: "Will my site reflect our doctrine and aesthetic, or will it look like every other 'church website'?",
-    a: "Your site reflects your ministry — period. We start every build by listening: your statement of faith, your traditions, your visual language, the way your congregation actually talks. A Reformed Baptist site looks Reformed Baptist. A Pentecostal site looks Pentecostal. An Anglican site looks Anglican. We never push templates. We never paint your ministry into a generic 'evangelical brand.' If our first homepage preview misses your doctrine or aesthetic, we rebuild it until it doesn't — at no cost to you.",
+    q: "Will my site reflect our doctrine and aesthetic, or will it look like every other ministry site?",
+    a: "Your site reflects your ministry — period. Doctrine matters whether you have a building or a podcast feed, and we treat it that way. We start every build by listening: your statement of faith, your traditions, your visual language, the way your community actually talks. A Reformed Baptist site looks Reformed Baptist. A Pentecostal site looks Pentecostal. An Anglican site looks Anglican. A creator-pastor's brand looks like their brand. We never push templates. We never paint your ministry into a generic 'evangelical brand.' If our first homepage preview misses your doctrine or aesthetic, we rebuild it until it doesn't — at no cost to you.",
+  },
+  {
+    q: "Do you build for digital-only ministries — podcasts, online communities, creator-pastors?",
+    a: "Absolutely. We build for the full spectrum of modern ministry. Whether your audience meets in a sanctuary, in a podcast feed, in a Discord server, in an Instagram following, or across all of those, your website should be the central home where curiosity becomes commitment. The design, structure, and integrations change based on how your ministry actually operates, but the standard of quality doesn't.",
+  },
+  {
+    q: "I don't have 501(c)(3) status yet. Can you still build for me?",
+    a: "Yes. We work with ministries at every formalization stage — from solo preachers building toward 501(c)(3) to fully established multi-campus operations. The legal structure of your ministry doesn't change the quality of website you deserve. If you do plan to formalize down the road, we'll build the site in a way that supports that transition (donation flows, transparent finances, board pages, etc.) without locking you into anything before you're ready.",
+  },
+  {
+    q: "I have a strong social following but no website yet. Where do we start?",
+    a: "Start exactly where you are. A growing audience without a real website is leaving impact on the table — every casual listener you can't convert into a follower, supporter, or member is a soul whose engagement plateaus. We start with a 20-minute kickoff call to understand your audience, your message, and your offer; design a custom homepage preview within 72 hours; and have your full site live within 14 days. From Linktree to legitimate, faster than you'd expect.",
   },
   {
     q: "How is this different from Sharefaith, Wix, or hiring a freelancer?",
-    a: "Sharefaith & Ekklesia360 lock you into their templates. Wix & Squarespace look generic & weren't built for ministry workflows. Freelancers ghost. We design custom, build for ministry-specific needs (sermons, giving, plan-a-visit), launch in 14 days, & manage everything ongoing — all at a stewardship-priced flat rate.",
+    a: "Sharefaith & Ekklesia360 lock you into their templates. Wix & Squarespace look generic & weren't built for ministry workflows. Freelancers ghost. We design custom, build for ministry-specific needs (sermons, episodes, giving, plan-a-visit, member portals), launch in 14 days, & manage everything ongoing — all at a stewardship-priced flat rate.",
   },
   {
-    q: "Can you really launch a full church website in 14 days?",
-    a: "Yes. We deliver a free homepage preview in 72 hours. Once you approve, the full site (5-12 pages, sermon library, giving, plan-a-visit, hosting) is live within 14 days. We've built the entire production process around this timeline.",
+    q: "Can you really launch a full ministry website in 14 days?",
+    a: "Yes. We deliver a free homepage preview in 72 hours. Once you approve, the full site (5-10 pages, sermon or episode library, giving, plan-a-visit, hosting) is live within 14 days. We've built the entire production process around this timeline.",
   },
   {
     q: "How much work is required from our team?",
-    a: "Roughly 2-3 hours total across the build. One 20-minute kickoff call, a Google Drive folder of your logo, photos, & service info, & a single approval call. We handle copy, design, build, integrations, & launch. You get back to ministry.",
+    a: "Roughly 2-3 hours total across the build. One 20-minute kickoff call, a Google Drive folder of your logo, photos, & service or content info, & a single approval call. We handle copy, design, build, integrations, & launch. You get back to ministry.",
   },
   {
     q: "What if we don't like the design? What if we want to leave later?",
@@ -391,7 +403,7 @@ export const FAQS = [
   },
   {
     q: "How does onboarding work? Who hosts the site? What happens to our existing content?",
-    a: "We host everything (hosting included in your monthly fee). After your kickoff call, we migrate any existing sermons, photos, & content you want to keep, set up your domain (we'll handle the DNS), connect your giving & CRM tools, & launch. Your old site stays live until your new one is approved & ready to go.",
+    a: "We host everything (hosting included in your monthly fee). After your kickoff call, we migrate any existing sermons, episodes, photos, & content you want to keep, set up your domain (we'll handle the DNS), connect your giving & CRM tools, & launch. Your old site stays live until your new one is approved & ready to go.",
   },
   {
     q: "What happens after I book my free homepage preview?",
