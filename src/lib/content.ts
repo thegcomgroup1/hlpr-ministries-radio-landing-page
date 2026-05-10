@@ -356,7 +356,7 @@ export const FUD_ITEMS = [
 
 export const FINAL_CTA = {
   headline:
-    "More souls reached. More seats filled. Live in 14 days.",
+    "Reach more souls. Grow your ministry. Live in 14 days.",
   sub: BUSINESS.riskReversal,
 };
 
