@@ -10,20 +10,23 @@ export const PainPointSection = () => {
         </p>
 
         <p className="mt-5 text-lg text-brand-navy-soft leading-relaxed">
-          It's 9pm Saturday. A young family three streets over types
-          "churches near me" into Google. Your church comes up. She taps it.
-          Your website loads on her phone, & it's broken. The hero image
-          won't render. The service times haven't been updated since 2019.
-          The give button goes nowhere.
+          It's the moment of discovery. Maybe a young family three streets
+          from your building Googles "churches near me." Maybe someone
+          stumbles on your podcast at 11pm and binges three episodes
+          back-to-back. Maybe a 23-year-old finds your sermon clip on
+          TikTok and wants to know what you're really about.
         </p>
 
         <p className="mt-4 text-lg text-brand-navy-soft leading-relaxed">
-          She closes the tab. They visit the church across town instead.
-          You'll never know they almost came home to you.
+          In all three cases, your website is the bridge between curiosity
+          and commitment. And in all three cases, when the bridge looks
+          broken — outdated design, no content archive, no clear way to
+          engage, no story behind the brand — they walk. The search ends.
+          The binge stops. The soul God put in front of you keeps scrolling.
         </p>
 
         <h2 className="mt-12 font-serif text-3xl sm:text-4xl font-bold text-brand-navy text-balance leading-tight">
-          If any of this sounds familiar, you're not alone:
+          You'll know this is for you if any of these sound familiar:
         </h2>
 
         <ul className="mt-8 space-y-5">
