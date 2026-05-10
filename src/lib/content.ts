@@ -345,7 +345,7 @@ export const PRICING_TIERS = [
 ];
 
 export const PRICING_CROSSSELL =
-  "After your site is live, we also offer email marketing retainers (Bronze, Silver, Gold) for ministries ready to grow their congregation digitally. Ask about it on your free homepage preview call.";
+  "After your site is live, we also offer email marketing retainers (Bronze, Silver, Gold) for ministries ready to grow their audience digitally. Ask about it on your free homepage preview call.";
 
 export const FUD_ITEMS = [
   { icon: "gift", label: "Free homepage preview" },
