@@ -16,11 +16,11 @@ export const BUSINESS = {
 };
 
 export const NAV_LINKS = [
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Packages", href: "#pricing" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Founder", href: "#founder" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Packages", href: "/#pricing" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export const MINISTRY_PORTFOLIO = [
