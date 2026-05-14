@@ -12,20 +12,6 @@ const formatDate = (iso: string) =>
   });
 
 const Blog = () => {
-  const blogJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    name: "HLPR Ministries Blog",
-    url: "https://ministries.hlpr.io/blog",
-    blogPost: posts.map((p) => ({
-      "@type": "BlogPosting",
-      headline: p.title,
-      description: p.description,
-      datePublished: p.date,
-      url: `https://ministries.hlpr.io/blog/${p.slug}`,
-    })),
-  };
-
   return (
     <>
       <Helmet>

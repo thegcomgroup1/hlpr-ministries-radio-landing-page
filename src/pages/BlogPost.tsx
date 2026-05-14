@@ -10,36 +10,6 @@ const BlogPost = () => {
 
   if (!post) return <NotFound />;
 
-  const url = `https://ministries.hlpr.io/blog/${post.slug}`;
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    dateModified: post.date,
-    author: { "@type": "Organization", name: "HLPR for Ministries" },
-    publisher: {
-      "@type": "Organization",
-      name: "HLPR for Ministries",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://ministries.hlpr.io/favicon.png",
-      },
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": url },
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://ministries.hlpr.io/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://ministries.hlpr.io/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: url },
-    ],
-  };
-
   return (
     <>
       <Helmet>
