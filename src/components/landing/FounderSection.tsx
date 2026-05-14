@@ -19,6 +19,9 @@ export const FounderSection = () => {
               <img
                 src={founderHeadshot}
                 alt={`${FOUNDER.name}, ${FOUNDER.title}`}
+                width="256"
+                height="256"
+                loading="lazy"
                 className="relative h-32 w-32 sm:h-36 sm:w-36 rounded-full object-cover border-2 border-brand-blue/60 shadow-elevated"
               />
             </div>
