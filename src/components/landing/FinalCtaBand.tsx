@@ -22,12 +22,12 @@ export const FinalCtaBand = () => {
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-balance leading-tight">
           {FINAL_CTA.headline}
         </h2>
-        <p className="mt-5 text-base sm:text-lg text-brand-cream/85 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 text-base sm:text-lg text-brand-cream/90 max-w-2xl mx-auto leading-relaxed">
           {FINAL_CTA.sub}
         </p>
         <div className="mt-9 flex flex-col items-center gap-3">
           <CtaButton href={BUSINESS.ctaUrl} label={BUSINESS.ctaLabel} size="xl" />
-          <p className="text-xs text-brand-cream/70">
+          <p className="text-xs text-brand-cream/90">
             {BUSINESS.riskReversalShort}
           </p>
         </div>

@@ -92,7 +92,7 @@ export const Footer = () => {
           </nav>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-brand-cream/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-brand-cream/60">
+        <div className="mt-12 pt-8 border-t border-brand-cream/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-brand-cream/90">
           <p>© {year} HLPR for Ministries. All rights reserved.</p>
           <p>Built for the kingdom, not for portfolios.</p>
         </div>
