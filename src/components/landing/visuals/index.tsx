@@ -37,6 +37,8 @@ export const StainedGlassArch = ({ className = "" }: { className?: string }) => 
 export const ChurchSiteMockup = ({ className = "" }: { className?: string }) => (
   <svg
     viewBox="0 0 720 520"
+    width="720"
+    height="520"
     className={className}
     role="img"
     aria-label="Preview of a modern, mobile-friendly church website with service times, plan-a-visit, sermon library, & one-tap giving"
