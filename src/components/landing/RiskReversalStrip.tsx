@@ -34,7 +34,7 @@ export const RiskReversalStrip = () => {
           </div>
           <div className="lg:col-span-5 lg:text-right">
             <CtaButton href={BUSINESS.ctaUrl} label={BUSINESS.ctaLabel} size="lg" />
-            <p className="mt-3 text-xs text-brand-cream/75">
+            <p className="mt-3 text-xs text-brand-cream/90">
               {BUSINESS.riskReversalShort}
             </p>
           </div>

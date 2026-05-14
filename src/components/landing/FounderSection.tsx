@@ -27,7 +27,7 @@ export const FounderSection = () => {
             </div>
             <div>
               <p className="font-serif text-xl font-bold">{FOUNDER.name}</p>
-              <p className="text-sm text-brand-cream/70">{FOUNDER.title}</p>
+              <p className="text-sm text-brand-cream/90">{FOUNDER.title}</p>
               {FOUNDER.instagramUrl && (
                 <a
                   href={FOUNDER.instagramUrl}
