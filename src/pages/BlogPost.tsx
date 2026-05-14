@@ -44,15 +44,8 @@ const BlogPost = () => {
     <>
       <Helmet>
         <title>{post.title} | HLPR Ministries</title>
+        <meta name="robots" content="noindex,nofollow" />
         <meta name="description" content={post.description} />
-        <link rel="canonical" href={url} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.description} />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="article" />
-        <meta property="article:published_time" content={post.date} />
-        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
       <PostLayout
         title={post.title}
