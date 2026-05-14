@@ -7,6 +7,8 @@
 export const StainedGlassArch = ({ className = "" }: { className?: string }) => (
   <svg
     viewBox="0 0 600 800"
+    width="600"
+    height="800"
     className={className}
     aria-hidden="true"
     fill="none"
