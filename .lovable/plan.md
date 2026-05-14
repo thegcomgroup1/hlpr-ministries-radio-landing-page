@@ -1,99 +1,133 @@
-# SEO Growth Plan for ministries.hlpr.io
+# SEO Dashboard + 90-Day Growth Plan
 
-Two parts: (1) finish the Google Search Console connection so we can measure, and (2) build a real content + SEO engine so there's something for Google to rank.
-
----
-
-## Part 1 — Finish Google Search Console setup
-
-Right now GSC is half-done. To complete it:
-
-1. **Approve the connector** — I'll re-trigger the Google Search Console connection prompt. You sign in with the Google account you want to own the property (use the one that will manage SEO long-term, not a personal throwaway).
-2. **Verify the domain via meta tag** — once connected, I'll:
-   - Request a verification token from Google
-   - Add a `<meta name="google-site-verification" content="...">` tag to `index.html`
-   - Ask you to **publish** so the tag goes live on `ministries.hlpr.io`
-   - Call Google's verify endpoint
-3. **Register the property + submit sitemap** — I'll PUT the site into your GSC account and submit `https://ministries.hlpr.io/sitemap.xml` so indexing starts.
-4. **Confirm** — pull the site list back from GSC to confirm it's verified and the sitemap is accepted.
-
-After this, Google will start crawling and within ~1–2 weeks you'll see impressions/clicks data we can act on.
+Two deliverables: (1) a private dashboard at `/admin/seo` showing live Google Search Console data for ministries.hlpr.io, and (2) a tactical 90-day growth plan with validated keywords and a publishing calendar.
 
 ---
 
-## Part 2 — SEO growth strategy
+## Part 1 — SEO Dashboard
 
-Your site is brand new with ~0 organic traffic. Three levers, in priority order:
+### Access
+- Route: `/admin/seo` (also a simple `/admin` index).
+- Gate: single shared password stored as Lovable Cloud secret `ADMIN_PASSWORD`.
+- Flow: enter password → store hashed token in `localStorage` → all dashboard requests pass it to the edge function, which checks against the secret. No signup, no DB users table.
 
-### Lever A — Blog (the main growth engine)
+### Data source
+- Google Search Console only (already connected). GA4/Semrush can be added later in the same dashboard shell.
 
-A `/blog` section with answer-style articles targeting the questions your buyers (church admins, ministry leaders, podcasters) actually Google. We'd build:
+### Dashboard sections (one page, tabs or stacked cards)
 
-- **Route + layout**: `/blog` index, `/blog/:slug` post page, both SEO-optimized (per-route Helmet, Article JSON-LD, OG tags, canonical).
-- **Content storage**: posts as MDX/Markdown files in the repo (simple, no CMS needed) OR Lovable Cloud table if you want to write/edit from a web UI. I'd recommend **MDX files** for speed and zero ops.
-- **Sitemap auto-generation**: extend `scripts/generate-sitemap.ts` to include every published post.
-- **Internal linking**: posts link to homepage CTA ("Get a free 72-hour preview") so traffic converts.
+1. **Headline KPIs (last 28 days vs prior 28)**
+   - Total clicks, impressions, average CTR, average position. Each with a delta arrow.
 
-**Starter cluster — 8 posts targeting real ministry-website intent:**
-1. "How much should a church website cost in 2026?"
-2. "Best church website builders compared (Squarespace vs Wix vs custom)"
-3. "Church website checklist: 12 pages every ministry site needs"
-4. "How to launch a podcast website for your ministry"
-5. "Sermon archive websites: hosting, search, and SEO best practices"
-6. "Online giving on your church website: Stripe vs Tithe.ly vs Pushpay"
-7. "Church website SEO: how to rank locally for 'church near me'"
-8. "Migrating from Squarespace to a custom church website"
+2. **Trend chart** — daily clicks + impressions, last 90 days. Recharts area chart.
 
-I'd validate each title with Semrush volume/difficulty before writing, and pick the 4–5 with the best traffic-to-difficulty ratio.
+3. **Top queries table** — top 25 queries by impressions: query, clicks, impressions, CTR, position. Sortable.
 
-### Lever B — On-page SEO for the homepage
+4. **Top pages table** — top 25 pages by clicks: page, clicks, impressions, CTR, position.
 
-Quick wins on the existing landing page:
-- Add an FAQ-targeted section (already have FAQPage JSON-LD — good).
-- Add an `<h2>` cluster targeting "custom church website", "ministry web design", "podcast website design".
-- Add a small "Who we serve" section listing ministry types (churches, podcasts, nonprofits) — captures long-tail.
-- Add testimonials with `Review` schema once you have quotes.
+5. **Opportunity queries** — queries ranking position 5–20 with >100 impressions and CTR below the position-expected baseline. These are the fastest wins. Each row links to the page that ranks for it.
 
-### Lever C — Off-page (links + listings)
+6. **Coverage snapshot** — sitemap status (last submitted, last read, errors) pulled from `/webmasters/v3/sites/{site}/sitemaps`.
 
-These I can't do for you in code, but they matter:
-- List the business in **Google Business Profile** (even as a remote service — picks up "near me" traffic).
-- Get listed in church/ministry tool directories (ChurchTechToday, Ministry Tech, Capterra, G2).
-- Guest posts on 2–3 ministry blogs linking back — biggest lever for a new domain.
-- Ask the 4 portfolio clients (Dunamis, Eden Cove, Lifework, Saved Singles) to add a small "Site by HLPR" footer link → instant relevant backlinks.
+### Technical pieces
+- New edge function `gsc-analytics` that:
+  - Validates `x-admin-password` header against `ADMIN_PASSWORD` env.
+  - Accepts `{ endpoint, params }` and proxies to GSC via the connector gateway (`https://connector-gateway.lovable.dev/google_search_console/...`) using `LOVABLE_API_KEY` + `GOOGLE_SEARCH_CONSOLE_API_KEY`.
+  - Endpoints used: `searchAnalytics/query` (for KPIs/queries/pages/trend, multiple calls with different `dimensions`), `sites/{site}/sitemaps` (for coverage).
+  - Caches responses in-memory per cold start (5 min TTL) to keep GSC quota healthy.
+- Frontend:
+  - `src/pages/admin/AdminGate.tsx` — password form, stores token.
+  - `src/pages/admin/SeoDashboard.tsx` — fetches via `supabase.functions.invoke('gsc-analytics', ...)` with the admin header.
+  - `src/components/admin/` — `KpiCard`, `TrendChart`, `QueryTable`, `OpportunityTable`, `CoverageCard`.
+  - Routes added in `src/App.tsx`. Both routes get `noindex` meta + `Disallow: /admin` in `robots.txt`.
+- Reuses existing shadcn/Tailwind tokens. No new design system work.
 
-### Tracking & iteration
-
-- GA4 is already installed (`G-H5TXJYXG76`) ✓
-- GSC will be installed in Part 1 ✓
-- After 30 days I can pull GSC data, see which queries you're getting impressions for, and write/optimize posts toward the winners.
+### Out of scope (for v1)
+- No GA4, no Semrush live pulls (those stay in chat tools for now).
+- No multi-user auth, no per-user roles.
+- No write actions to GSC from the dashboard (read-only).
 
 ---
 
-## Suggested execution order
+## Part 2 — 90-Day SEO Growth Plan
 
-1. **Now**: Finish GSC setup (Part 1) — ~5 minutes of your time.
-2. **This week**: I build the `/blog` infrastructure + write the first 2 posts using your existing brand voice (ones I read in `Hero.tsx` and `FounderSection.tsx`).
-3. **Next 2 weeks**: Write remaining 3–6 posts (1–2 per week is sustainable).
-4. **30 days**: Review GSC, double down on what's working.
+### Target audience (locked in)
+Pastors, ministry leaders, and creator-ministers with audiences of 500+ and growing. Buying triggers: launching/relaunching a site, outgrowing Squarespace/Wix, needing donations + sermons + events in one place, wanting a modern look without hiring an agency.
+
+### Strategy in one line
+Own the long-tail "modern church/ministry website" space by publishing high-intent comparison + how-to content, then convert with the existing portfolio and packages pages.
+
+### Workstream A — Technical foundation (Week 1, one-time)
+- Verify GSC sitemap is processed (already submitted).
+- Audit existing pages: confirm one H1 per page, unique meta titles/descriptions <60/<160 chars, alt text on all portfolio images, internal links from blog → packages.
+- Add `Organization` + `Service` JSON-LD on home; `FAQPage` JSON-LD on FAQ section.
+- Re-enable `/blog` (remove `noindex`, add back to sitemap, nav, llms.txt, robots).
+- Open Graph image refresh for social shares.
+
+### Workstream B — Keyword targets (validated via Semrush, Weeks 1–2)
+Cluster around four pillars. Each post = one primary keyword + 3–5 supporting questions.
+
+1. **Cost & comparison** (commercial intent, fastest revenue)
+   - "church website cost", "church website builder vs custom", "best church website platforms 2026", "Squarespace vs custom church site"
+2. **Launch & relaunch how-to** (informational, builds authority)
+   - "how to launch a church website", "church website checklist", "what every ministry website needs"
+3. **Creator-minister specific** (low-competition niche we can own)
+   - "podcast ministry website", "creator pastor website", "online ministry platform", "Substack alternative for ministries"
+4. **Conversion features** (bottom funnel)
+   - "online giving for small churches", "sermon hosting on website", "church event registration tools"
+
+I'll validate volume + KDI for each with `keyword_research` / `keyword_compare` before locking the calendar in week 1.
+
+### Workstream C — Content publishing calendar
+- **Cadence**: 1 high-quality post per week, 1,500–2,500 words, original screenshots, internal link to `/portfolio` and `/packages`.
+- **Month 1 (Weeks 1–4)**: Cost & comparison pillar. Launch the two existing drafts (`church-website-cost-2026`, `church-website-checklist`) after rewrite + expansion, then 2 new comparison posts.
+- **Month 2 (Weeks 5–8)**: Creator-minister pillar — least competition, highest brand fit. 4 posts.
+- **Month 3 (Weeks 9–12)**: Launch how-to + features pillar. 4 posts. Add 1 case-study post per existing portfolio client.
+
+### Workstream D — Off-page (parallel, Weeks 2–12)
+- List on church-tech directories (ChurchTechToday, ChurchMag, Capterra under "Church Management").
+- Guest posts: pitch 2 ministry-creator newsletters/podcasts per month with a "modern ministry website" angle.
+- Add a "Built by" backlink in footer of each portfolio client site (request once, recurring authority).
+- Encourage Google reviews from portfolio clients.
+
+### Workstream E — Measurement (using the new dashboard)
+- Weekly: check Opportunity Queries; if any post enters position 5–20, refresh that post within 7 days (expand, add FAQ, add internal links).
+- Bi-weekly: review top pages — if a non-blog page (e.g., /packages) is gaining queries, add an FAQ block targeting those queries.
+- Monthly: rerun `seo_trend` + `competitive_analysis` in chat to spot new gaps.
+
+### 90-day targets (realistic for a new domain)
+- 12 indexed blog posts.
+- 1,000+ monthly impressions in GSC by day 60, 5,000+ by day 90.
+- 3+ posts ranking in top 20 for their primary keyword by day 90.
+- First non-brand organic conversions (contact form / package inquiry) by month 3.
 
 ---
 
-## Technical scope of Part 2 (what I'd actually build)
+## Technical reference
 
-- `src/pages/Blog.tsx` — index page listing posts
-- `src/pages/BlogPost.tsx` — dynamic post page
-- `src/content/posts/*.mdx` — post files with frontmatter (title, description, slug, date, ogImage)
-- `src/lib/posts.ts` — load + parse MDX at build time
-- `vite.config.ts` — add `@mdx-js/rollup` plugin
-- `scripts/generate-sitemap.ts` — extend to include all posts
-- `App.tsx` — add `/blog` and `/blog/:slug` routes
-- `StickyNav.tsx` + `Footer.tsx` — add Blog links
+```text
+src/
+  pages/admin/
+    AdminGate.tsx          # password form
+    SeoDashboard.tsx       # main dashboard
+  components/admin/
+    KpiCard.tsx
+    TrendChart.tsx
+    QueryTable.tsx
+    OpportunityTable.tsx
+    CoverageCard.tsx
+  lib/admin-auth.ts        # localStorage token helper
 
----
+supabase/functions/gsc-analytics/index.ts
+  - validates x-admin-password header
+  - proxies to GSC via connector gateway
+  - in-memory 5min cache
 
-## What I need from you to proceed
+public/robots.txt          # add: Disallow: /admin
+secrets:
+  ADMIN_PASSWORD           # new, requested via add_secret
+  LOVABLE_API_KEY          # already present
+  GOOGLE_SEARCH_CONSOLE_API_KEY  # already present (connector linked)
+```
 
-- **Confirm the GSC Google account** to use (or just approve when I trigger the prompt).
-- **Pick a content storage approach**: MDX files in repo (fast, my recommendation) vs Lovable Cloud table with an admin UI (more work, but you write posts in-browser).
-- **Approve the starter post topics** above, or swap in topics you'd rather target.
+After approval I'll add the `ADMIN_PASSWORD` secret first, then build the edge function, then the UI, then unhide the blog and start the Week 1 keyword validation.
