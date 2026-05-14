@@ -48,7 +48,7 @@ export const Hero = () => {
           <div className="lg:col-span-6 animate-fade-up" style={{ animationDelay: "120ms" }}>
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-brand-navy/5 blur-2xl" aria-hidden />
-              <div className="relative rounded-2xl shadow-elevated overflow-hidden border border-border bg-card">
+              <div className="relative aspect-[720/520] rounded-2xl shadow-elevated overflow-hidden border border-border bg-card">
                 <ChurchSiteMockup className="w-full h-auto" />
               </div>
             </div>
