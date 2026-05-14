@@ -9,12 +9,6 @@ HLPR for Ministries builds modern, mobile-first websites for ministries of all s
 - [/](/): Landing page — hero, portfolio, pricing, how it works, founder story, and FAQ.
 - [Privacy](/privacy): Privacy policy covering data collection, cookies, SMS/phone communications, and TCPA compliance.
 - [Terms](/terms): Terms of service covering acceptable use, service availability, and refund policy.
-- [Blog](/blog): Practical guides on church website design, ministry SEO, online giving, and growing a ministry online.
-
-## Blog posts
-
-- [How much should a church website cost in 2026?](/blog/church-website-cost-2026): Honest 2026 breakdown of DIY, freelancer, done-for-you, and agency pricing for church websites.
-- [Church website checklist: 12 pages every ministry site needs](/blog/church-website-checklist): The pages, sections, and technical details that matter for a modern church website.
 
 ## Sections on the homepage
 

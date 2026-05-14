@@ -12,37 +12,15 @@ const formatDate = (iso: string) =>
   });
 
 const Blog = () => {
-  const blogJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    name: "HLPR Ministries Blog",
-    url: "https://ministries.hlpr.io/blog",
-    blogPost: posts.map((p) => ({
-      "@type": "BlogPosting",
-      headline: p.title,
-      description: p.description,
-      datePublished: p.date,
-      url: `https://ministries.hlpr.io/blog/${p.slug}`,
-    })),
-  };
-
   return (
     <>
       <Helmet>
-        <title>Blog — Church & Ministry Website Guides | HLPR Ministries</title>
+        <title>Blog — HLPR Ministries</title>
+        <meta name="robots" content="noindex,nofollow" />
         <meta
           name="description"
           content="Practical guides on church website design, ministry SEO, online giving, podcast sites, and growing your ministry online."
         />
-        <link rel="canonical" href="https://ministries.hlpr.io/blog" />
-        <meta property="og:title" content="HLPR Ministries Blog" />
-        <meta
-          property="og:description"
-          content="Practical guides on church website design, ministry SEO, online giving, and more."
-        />
-        <meta property="og:url" content="https://ministries.hlpr.io/blog" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify(blogJsonLd)}</script>
       </Helmet>
       <StickyNav />
       <main id="main">
