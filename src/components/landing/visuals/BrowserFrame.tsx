@@ -44,6 +44,8 @@ export const BrowserFrame = ({
         <img
           src={imageSrc}
           alt={imageAlt}
+          width="800"
+          height="450"
           loading="lazy"
           className="w-full h-full object-cover object-top"
         />
