@@ -1,7 +1,17 @@
+import { Helmet } from "react-helmet-async";
 import { LegalPage } from "@/components/landing/LegalPage";
 
 const Terms = () => {
   return (
+    <>
+    <Helmet>
+      <title>Terms of Service — HLPR Ministries</title>
+      <meta name="description" content="The terms governing use of HLPR for Ministries — acceptable use, payment, SMS communications, service availability, and refund policy." />
+      <link rel="canonical" href="https://ministries.hlpr.io/terms" />
+      <meta property="og:title" content="Terms of Service — HLPR Ministries" />
+      <meta property="og:description" content="The terms governing use of HLPR for Ministries — acceptable use, payment, SMS communications, service availability, and refund policy." />
+      <meta property="og:url" content="https://ministries.hlpr.io/terms" />
+    </Helmet>
     <LegalPage
       title="Terms of Service"
       intro="Please read these terms carefully before using our automation services."
@@ -114,6 +124,7 @@ const Terms = () => {
       <p><strong>Phone:</strong> +1 302-550-8521</p>
       <p><strong>Address:</strong> 4 Bootes Lane, Bear DE 19701</p>
     </LegalPage>
+    </>
   );
 };
 
