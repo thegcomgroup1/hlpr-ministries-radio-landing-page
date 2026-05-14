@@ -1,7 +1,17 @@
+import { Helmet } from "react-helmet-async";
 import { LegalPage } from "@/components/landing/LegalPage";
 
 const Privacy = () => {
   return (
+    <>
+    <Helmet>
+      <title>Privacy Policy — HLPR Ministries</title>
+      <meta name="description" content="How HLPR for Ministries collects, uses, and protects your information, including SMS consent and TCPA compliance." />
+      <link rel="canonical" href="https://ministries.hlpr.io/privacy" />
+      <meta property="og:title" content="Privacy Policy — HLPR Ministries" />
+      <meta property="og:description" content="How HLPR for Ministries collects, uses, and protects your information, including SMS consent and TCPA compliance." />
+      <meta property="og:url" content="https://ministries.hlpr.io/privacy" />
+    </Helmet>
     <LegalPage
       title="Privacy Policy"
       intro="Your privacy is important to us. This policy explains how we collect, use, and protect your information."
@@ -129,6 +139,7 @@ const Privacy = () => {
       <p><strong>Phone:</strong> +1 302-550-8521</p>
       <p><strong>Address:</strong> 4 Bootes Lane, Bear DE 19701</p>
     </LegalPage>
+    </>
   );
 };
 
