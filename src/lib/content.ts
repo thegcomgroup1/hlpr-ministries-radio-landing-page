@@ -19,7 +19,7 @@ export const NAV_LINKS = [
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Packages", href: "/#pricing" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Blog", href: "/blog" },
+  { label: "Founder", href: "/#founder" },
   { label: "FAQ", href: "/#faq" },
 ];
 
