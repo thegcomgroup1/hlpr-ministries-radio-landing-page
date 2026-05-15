@@ -1,0 +1,4 @@
+project_id = "cabgcgbcfjswjfkjcgfu"
+
+[functions.gsc-analytics]
+verify_jwt = false
