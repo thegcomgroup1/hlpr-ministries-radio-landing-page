@@ -16,6 +16,8 @@ import { FAQ } from "@/components/landing/FAQ";
 import { Footer } from "@/components/landing/Footer";
 import { FAQS } from "@/lib/content";
 
+const OG_IMAGE = "https://ministries.hlpr.io/og-home.jpg";
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -24,6 +26,37 @@ const faqJsonLd = {
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
   })),
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "HLPR Ministries",
+  url: "https://ministries.hlpr.io",
+  logo: "https://ministries.hlpr.io/favicon.ico",
+  description:
+    "Custom website design, build, and management for churches, podcasts, and digital ministries.",
+};
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Custom church and ministry website design",
+  provider: {
+    "@type": "Organization",
+    name: "HLPR Ministries",
+    url: "https://ministries.hlpr.io",
+  },
+  areaServed: "US",
+  audience: {
+    "@type": "Audience",
+    audienceType: "Pastors, ministry leaders, and creator-ministers",
+  },
+  offers: [
+    { "@type": "Offer", name: "Foundation", price: "1500", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Growth", price: "199", priceCurrency: "USD" },
+    { "@type": "Offer", name: "Established", price: "5000", priceCurrency: "USD" },
+  ],
 };
 
 const Index = () => {
@@ -42,7 +75,21 @@ const Index = () => {
           content="Custom websites for churches, podcasts, and digital ministries. Free 72-hour homepage preview, live in 14 days. No payment until you approve."
         />
         <meta property="og:url" content="https://ministries.hlpr.io/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="HLPR Ministries — custom websites for ministries, live in 14 days" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="HLPR Ministries — Custom Websites for Ministries" />
+        <meta
+          name="twitter:description"
+          content="Custom websites for churches, podcasts, and digital ministries. Live in 14 days. No payment until you approve."
+        />
+        <meta name="twitter:image" content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
       </Helmet>
       <StickyNav />
       <main id="main">
