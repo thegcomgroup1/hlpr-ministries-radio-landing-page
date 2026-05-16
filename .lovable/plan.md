@@ -91,3 +91,54 @@ Output: 4 finalized post briefs (week 1–4), each with primary keyword, support
 - Rewriting the two existing post drafts (separate task, after calendar is locked).
 - Off-page workstream (directories, guest posts) — Workstream D, runs in parallel later.
 - GA4 integration into the dashboard.
+
+---
+
+# Week 1 keyword validation — RESULTS (Semrush US, May 2026)
+
+## Pillar scoring
+
+| Term | Volume | KDI | Verdict |
+|---|---|---|---|
+| **church seo** | 1,300/mo | very easy | TOP win — content pillar |
+| **seo for churches** | 1,000/mo | very easy | bundle with above |
+| **church website builder** | 1,300/mo | 43 (possible) | stretch, SERP is product-heavy |
+| **best church website builder** | 720/mo | medium | comparison-post angle works |
+| **church website design** | 720/mo | low | service-page term (use on /packages) |
+| **online giving for small churches** | 70/mo | 42 | commercial intent, $9.15 CPC |
+| **how to build a church website** | 170/mo | medium | how-to play |
+| **local seo for churches** | 210/mo | low | local-pack target |
+| church website cost | 50/mo | very easy | already covered |
+| church website checklist | 50/mo | very easy | already covered |
+| church website seo | 170/mo | 12 | SERP open (no big SaaS in top 5) |
+| church website features | 20/mo | very easy | bundle internally |
+
+Creator-minister pillar (`podcast ministry website`, `creator pastor website`, `digital ministry website`) all returned **no data** — too niche/emerging. Hold this pillar until Month 2 and target adjacent terms like "online ministry platform" via comparison angles instead.
+
+## Competitor landscape (Subsplash neighborhood)
+Big players to outflank with longer, more specific posts: tithe.ly, pushpay, churchtrac, churchcenter.com, snappages.site, reachrightstudios, churchspring.com, thechurchco.com.
+
+---
+
+# Month 1 publishing calendar — LOCKED
+
+| Wk | Slug | Primary KW (vol/KDI) | Secondary KWs | Words | Internal link |
+|---|---|---|---|---|---|
+| 1 | `best-church-website-builders-2026` | best church website builder (720, medium) | church website builder, squarespace church website, wix church website, nucleus, tithely | 2,400 | → /packages (custom alternative) |
+| 2 | `church-seo-guide-2026` | church seo (1,300, very easy) | seo for churches, church website seo, local seo for churches, church seo keywords, church seo audit | 2,800 | → /portfolio (proof) + /packages |
+| 3 | `how-to-build-a-church-website` | how to build a church website (170, medium) | church website features, how to build a church website step by step, what is the best website builder for churches | 2,000 | → cost-2026 + checklist + /packages |
+| 4 | `online-giving-for-small-churches` | online giving for small churches (70, 42) | how to set up online giving for small churches, givelify vs tithely, donation website | 1,800 | → /packages (Growth tier mentions giving setup) |
+
+Each post must include:
+- H1 = primary keyword variant
+- 5–8 H2s pulled from the question-keyword lists above (FAQ schema)
+- BreadcrumbList JSON-LD
+- 2+ internal links to /packages or /portfolio
+- 1 external link to authoritative source (state law for giving, Google docs for SEO)
+- Custom OG image (or fall back to /og-home.jpg)
+
+## Month 2/3 candidates (preview)
+- `church-website-design-cost-breakdown` (church website design 720/low)
+- `local-seo-for-churches` (210/low)
+- `church-website-checklist-audit` — companion to existing checklist
+- Outreach/comparison posts targeting `nucleus alternative`, `tithely alternative`, `churchspring alternative`
