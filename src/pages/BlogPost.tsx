@@ -14,8 +14,28 @@ const BlogPost = () => {
     <>
       <Helmet>
         <title>{post.title} | HLPR Ministries</title>
-        <meta name="robots" content="noindex,nofollow" />
+        <meta name="robots" content="index,follow" />
         <meta name="description" content={post.description} />
+        <link rel="canonical" href={`https://ministries.hlpr.io/blog/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.description} />
+        <meta property="og:url" content={`https://ministries.hlpr.io/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content={post.date} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post.title,
+          description: post.description,
+          datePublished: post.date,
+          author: { "@type": "Organization", name: "HLPR Ministries" },
+          publisher: {
+            "@type": "Organization",
+            name: "HLPR Ministries",
+            url: "https://ministries.hlpr.io",
+          },
+          mainEntityOfPage: `https://ministries.hlpr.io/blog/${post.slug}`,
+        })}</script>
       </Helmet>
       <PostLayout
         title={post.title}
