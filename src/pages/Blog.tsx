@@ -29,6 +29,9 @@ const Blog = () => {
         />
         <meta property="og:url" content="https://ministries.hlpr.io/blog" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://ministries.hlpr.io/og-home.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://ministries.hlpr.io/og-home.jpg" />
       </Helmet>
       <StickyNav />
       <main id="main">

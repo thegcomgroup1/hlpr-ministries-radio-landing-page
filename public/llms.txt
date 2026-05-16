@@ -21,3 +21,9 @@ HLPR for Ministries builds modern, mobile-first websites for ministries of all s
 ## Optional
 
 - [Book a preview](https://links.hlpr.io/widget/booking/gPnL2RU578xVCKw8faDS?utm_source=ministries-lp&utm_medium=cta&utm_campaign=organic): Calendly booking widget for a free homepage preview call.
+
+## Blog
+
+- [/blog](/blog): Practical guides on church website design, ministry SEO, online giving, and growing your ministry online.
+- [How much should a church website cost in 2026?](/blog/church-website-cost-2026): Real cost ranges and what drives them.
+- [Church website checklist: 12 pages every ministry site needs in 2026](/blog/church-website-checklist): The pages and features that actually matter.

@@ -21,6 +21,9 @@ const BlogPost = () => {
         <meta property="og:description" content={post.description} />
         <meta property="og:url" content={`https://ministries.hlpr.io/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://ministries.hlpr.io/og-home.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://ministries.hlpr.io/og-home.jpg" />
         <meta property="article:published_time" content={post.date} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
