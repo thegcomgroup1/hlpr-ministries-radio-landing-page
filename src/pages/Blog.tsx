@@ -16,11 +16,22 @@ const Blog = () => {
     <>
       <Helmet>
         <title>Blog — HLPR Ministries</title>
-        <meta name="robots" content="noindex,nofollow" />
+        <meta name="robots" content="index,follow" />
         <meta
           name="description"
           content="Practical guides on church website design, ministry SEO, online giving, podcast sites, and growing your ministry online."
         />
+        <link rel="canonical" href="https://ministries.hlpr.io/blog" />
+        <meta property="og:title" content="Blog — HLPR Ministries" />
+        <meta
+          property="og:description"
+          content="Practical guides on church website design, ministry SEO, online giving, podcast sites, and growing your ministry online."
+        />
+        <meta property="og:url" content="https://ministries.hlpr.io/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://ministries.hlpr.io/og-home.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://ministries.hlpr.io/og-home.jpg" />
       </Helmet>
       <StickyNav />
       <main id="main">

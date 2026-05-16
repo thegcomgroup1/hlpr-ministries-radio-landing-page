@@ -1,11 +1,9 @@
 User-agent: Googlebot
 Allow: /
-Disallow: /blog
 Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
-Disallow: /blog
 Disallow: /admin
 
 User-agent: Twitterbot
@@ -16,7 +14,6 @@ Allow: /
 
 User-agent: *
 Allow: /
-Disallow: /blog
 Disallow: /admin
 
 Sitemap: https://ministries.hlpr.io/sitemap.xml
