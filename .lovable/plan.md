@@ -1,48 +1,26 @@
-# Flyer v3 + v4 — Two Variants
 
-Keep US Letter (8.5 × 11"), full page. Deliver two PDFs.
+# Flyer v5 — v2 layout + your ChatGPT visual
 
-## v3 — "Single Hero Composite" (your first ask)
+You're right on both counts: v2's layout was the strongest, and I kept regenerating my own composites instead of just using the image you uploaded. Fixing both.
 
-One large product shot dominates the upper body of the flyer, mirroring the ChatGPT reference: desktop browser + iPhone floating over it, on a navy gradient.
+## What I'll do
 
-- **Build the composite:** screenshot the live `ministries.hlpr.io` desktop hero (1440px) + a mobile viewport (390px), composite in Python/Pillow with browser chrome + phone frame on a navy gradient
-- **Placement:** directly under Founding Partner ribbon, ~6.5" wide
-- **Below it:** the 3 value-prop columns become text-only (no SVG mockups), tight, single page
-- **Caption under composite:** *"What your ministry's site could look like in 14 days."*
-- Hero QR + bottom QR retained from v2
-- File: `/mnt/documents/hlpr-ministries-flyer-v3.pdf`
+1. Take **v2 exactly as-is** — same 8.5×11" full-page layout, same headline, same Founding Partner ribbon, same 3 value-prop columns, same dual QR codes, same risk-reversal band, same Tim Godson footer.
+2. **Swap the hero visual** for your uploaded image (`user-uploads://image.png`) — the desktop "Welcome Home" + iPhone composite on navy. Drop it in directly, no re-rendering, no Pillow compositing, no Playwright screenshots. Just embed the file you gave me.
+3. Size it to fill the hero slot under the ribbon at print resolution, preserving aspect ratio with a subtle drop shadow on the existing cream/navy background.
+4. Keep "& ministries alike" caption visible at top of image since it's part of your uploaded crop — or trim it if it reads awkwardly against the ribbon. I'll check in QA.
 
-## v4 — "Multi-Visual Showcase" (the 3 new screenshots)
+## Output
 
-Same skeleton as v3, but swap the single composite for a **3-up product gallery** using the screenshots the user just uploaded:
+- `/mnt/documents/hlpr-ministries-flyer-v5.pdf` — single file, replaces v3/v4 as the recommended version
+- Leave v2, v3, v4 in place so you can compare
 
-1. **Desktop "Helping people find and follow Jesus Christ"** hero (Screenshot 11.08.24)
-2. **"Your HLPR Inbox" + stats panel** (Screenshot 11.08.29)
-3. **Stats trio with trend chart** (Screenshot 11.08.38)
+## QA
 
-- Use the uploaded images directly (already polished, already on-brand) — no compositing needed
-- Arrange as a horizontal 3-up row with subtle drop shadows on a navy gradient band
-- Caption under row: *"A real product. Real ministries. Live in 14 days."*
-- Below row: same text-only 3 value-prop columns as v3
-- Hero QR + bottom QR retained
-- File: `/mnt/documents/hlpr-ministries-flyer-v4.pdf`
-
-## Shared across both
-
-- 8.5 × 11" Letter, print-ready 300dpi
-- Headline: "Your Ministry Website. Live In 14 Days."
-- Founding Partner ribbon, risk-reversal CTA band, money-back guarantee bullet
-- Tim Godson, Founder footer
-- QR codes with UTM `?utm_source=flyer&utm_medium=print&utm_campaign=founding`
-
-## QA (both files)
-
-Render → convert to JPG → inspect each for: no overflow, no overlapping text, QR scannable, screenshots crisp at print resolution, both fit on one page. Iterate until clean.
+Render to JPG, inspect: visual is crisp at 300dpi, nothing overflows, QRs scan, page is exactly one page. Iterate if anything's off.
 
 ## Technical
 
-- HTML template → headless Chromium → PDF (same workflow as v2)
-- Pillow for v3 composite, direct `<img>` embed for v4 uploaded screenshots
-- `qrcode` Python lib for QR generation
-- Copy uploads from `/mnt/user-uploads/` into `/tmp/` for the renderer
+- Reuse the v2 HTML/CSS template unchanged
+- Replace the hero `<img>` src with the uploaded file (copied from `/mnt/user-uploads/image.png` to `/tmp/`)
+- Render via headless Chromium → PDF, same pipeline as v2
