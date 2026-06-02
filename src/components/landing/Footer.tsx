@@ -77,7 +77,8 @@ export const Footer = () => {
                     Book a preview
                   </a>
                 </li>
-                <li>{BUSINESS.domain}</li>
+                <li><a href="mailto:tim@hlpr.io" className="hover:text-brand-blue transition-colors">tim@hlpr.io</a></li>
+                <li><a href="tel:+13025508521" className="hover:text-brand-blue transition-colors">302-550-8521</a></li>
               </ul>
             </div>
             <div>
