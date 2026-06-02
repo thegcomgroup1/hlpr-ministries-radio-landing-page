@@ -59,9 +59,16 @@ const Privacy = () => {
         <li>Opt-out of SMS and phone marketing communications at any time by replying STOP to any message or contacting us directly</li>
       </ul>
 
-      <h2>7. Cookies and Tracking</h2>
+      <h2>7. Cookies, Analytics & Tracking</h2>
       <p>
-        We use cookies and similar tracking technologies to improve your experience on our website, analyze usage patterns, and deliver personalized content. You can control cookie settings through your browser preferences.
+        We use cookies and similar technologies to improve your experience, analyze usage patterns, and deliver personalized content. Specifically, we use:
+      </p>
+      <ul>
+        <li><strong>Lovable Analytics</strong> — privacy-friendly, aggregate page-view and source data. No personal identifiers.</li>
+        <li><strong>Microsoft Clarity</strong> — anonymized session recordings and heatmaps (clicks, scroll depth, areas of focus) used to diagnose usability issues. Clarity masks form inputs and personal data by default. See <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft's privacy statement</a>.</li>
+      </ul>
+      <p>
+        Analytics scripts only load after you accept the cookie banner shown on your first visit. You can change your choice at any time via the <strong>Cookie preferences</strong> link in the footer, or by clearing your browser's site data for this domain.
       </p>
 
       <h2>8. SMS and Phone Communications</h2>
