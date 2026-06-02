@@ -1,5 +1,6 @@
 import { Linkedin } from "lucide-react";
 import { BUSINESS, NAV_LINKS } from "@/lib/content";
+import { resetConsent } from "@/lib/consent";
 import hlprLogo from "@/assets/hlpr-logo.png";
 
 export const Footer = () => {
@@ -88,6 +89,15 @@ export const Footer = () => {
               <ul className="mt-4 space-y-2.5">
                 <li><a href="/privacy" className="hover:text-brand-blue transition-colors">Privacy</a></li>
                 <li><a href="/terms" className="hover:text-brand-blue transition-colors">Terms</a></li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => resetConsent()}
+                    className="hover:text-brand-blue transition-colors text-left"
+                  >
+                    Cookie preferences
+                  </button>
+                </li>
               </ul>
             </div>
           </nav>
