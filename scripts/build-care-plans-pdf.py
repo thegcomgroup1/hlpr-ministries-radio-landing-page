@@ -29,7 +29,7 @@ HTML = r"""<!doctype html>
   ul { list-style: none; padding: 0; margin: 8px 0 0; font-size: 9pt; line-height: 1.45; }
   ul li { display: flex; gap: 6px; padding: 3px 0; align-items: flex-start; }
   ul li svg.check { flex: 0 0 12px; width: 12px; height: 12px; margin-top: 3px; display: block; }
-  .tagline { text-align: center; font-style: italic; color: #1B2A4A; font-size: 10pt; margin: 0.25in 0 0.15in; }
+  .tagline { text-align: center; font-style: italic; color: #1B2A4A; font-size: 10pt; margin: 0.25in 0 0.15in; margin-top: auto; padding-top: 0.25in; }
   .trust { background: #EEF3FA; border-top: 1px solid #DCE6F4; text-align: center; padding: 0.22in 0.6in; font-size: 10.5pt; color: #1B2A4A; line-height: 1.45; }
   .trust strong { font-weight: 700; }
   .footer { background: #1B2A4A; color: #DCE6F4; text-align: center; padding: 0.22in 0.5in; font-size: 9pt; }
