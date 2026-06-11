@@ -47,10 +47,10 @@ HTML = r"""<!doctype html>
         <div class="tier-label">The essentials.</div>
         <div class="price">$49.99<span class="per"> /mo</span></div>
         <ul>
-          <li>Secure hosting &amp; SSL</li>
-          <li>Automatic backups</li>
-          <li>Uptime monitoring</li>
-          <li>Unlimited content updates within 24 hours (text, email, or Slack)</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Secure hosting &amp; SSL</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatic backups</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Uptime monitoring</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited content updates within 24 hours (text, email, or Slack)</li>
         </ul>
       </div>
       <div class="card elevated">
@@ -60,10 +60,10 @@ HTML = r"""<!doctype html>
         <div class="price">$249.99<span class="per"> /mo</span></div>
         <div class="plus">Everything in Foundation, plus:</div>
         <ul>
-          <li>8 branded social media graphics per month (2/week)</li>
-          <li>Profile setup &amp; upkeep</li>
-          <li>Monthly content guidance</li>
-          <li>Priority support</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>8 branded social media graphics per month (2/week)</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Profile setup &amp; upkeep</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Monthly content guidance</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</li>
         </ul>
       </div>
       <div class="card">
@@ -72,10 +72,10 @@ HTML = r"""<!doctype html>
         <div class="price">$449.99<span class="per"> /mo</span></div>
         <div class="plus">Everything in Growth, plus:</div>
         <ul>
-          <li>Sermon publishing to YouTube each week</li>
-          <li>Channel optimization &amp; thumbnails</li>
-          <li>Content strategy for reach</li>
-          <li>Dedicated team member</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sermon publishing to YouTube each week</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Channel optimization &amp; thumbnails</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Content strategy for reach</li>
+          <li><svg class="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.5 4.5l-7 7L2.5 7.5" fill="none" stroke="#2E5FA3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated team member</li>
         </ul>
       </div>
     </div>
