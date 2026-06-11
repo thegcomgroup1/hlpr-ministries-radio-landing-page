@@ -81,6 +81,9 @@ HTML = r"""<!doctype html>
     </div>
     <div class="tagline">Plans are month to month. Upgrade or downgrade any time as your ministry grows.</div>
   </div>
+  <div class="trust">
+    <strong>Every plan includes a real human team.</strong> Reach us by text, email, or Slack — updates live within 24 hours.
+  </div>
   <div class="footer">
     <strong>hlpr Ministries</strong> &middot; Named for the Holy Spirit — our Helper. &middot; tim@hlpr.io
   </div>
