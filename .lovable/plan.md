@@ -1,36 +1,40 @@
-# Care Plans PDF + LP — Defensibility Edits
+## Care Plans PDF — final cosmetic pass
 
-Two copy changes + a verification pass. No structural or pricing changes.
+Two small edits to `scripts/build-care-plans-pdf.py`, then regenerate and visually QA.
 
-## 1. Replace popularity claims with a defensible recommendation
+### 1. Fill the whitespace with a trust strip
 
-Both the PDF (`scripts/build-care-plans-pdf.py`) and the LP component (`src/components/landing/CarePlans.tsx`) currently make popularity claims on the Growth tier. Swap them for a professional recommendation — same visual elevation, no unsupportable stat.
+Insert a full-width band between the month-to-month tagline and the navy footer:
 
-- Badge: **"MOST POPULAR" → "RECOMMENDED"** (both PDF and LP)
-- Growth subtitle: **"Most churches start here." → "For churches building their presence."** (both PDF and LP)
-- Keep the visual elevation (raised card, border, badge styling) — that's design, not a claim.
-- Also remove the `Star` icon's "most popular" connotation in the LP badge — keep the star as pure visual accent or drop it; either is fine, but the label is the contract.
+> **Every plan includes a real human team.** Reach us by text, email, or Slack — updates live within 24 hours.
 
-## 2. Confirm + (if needed) restore the PDF footer
+Styling:
+- Light blue-gray background (`#EEF3FA`) to bridge the card row and footer without competing with either
+- Centered, ~10.5pt Inter, navy `#1B2A4A` text, bold lead phrase
+- Padding ~`0.22in 0.5in`, full bleed left/right
+- Sits directly above the existing navy footer band (footer still anchored at bottom)
 
-The current script already includes a navy footer band:
+This turns the empty void into the trust line boards actually weigh, without changing any pricing, deliverables, badge, or footer copy.
 
-> **hlpr Ministries** · Named for the Holy Spirit — our Helper. · tim@hlpr.io
+### 2. Clean checkmark rendering
 
-Verification step (build mode): regenerate the PDF, render every page to JPG at 150dpi, and visually confirm:
+The current bullets use a CSS-masked SVG check. In some renders the mask edges can read as a faint double-stroke. Switch to a single inline SVG check per `<li>` (same navy `#2E5FA3`, 2.4 stroke, round caps) so the glyph is identical across every card and rasterizes cleanly at 100% zoom. No layout change — same size, same spacing.
 
-1. The footer band is present and fully visible on page 1.
-2. The PDF is **exactly one page** — no spillover. If page 2 exists, tighten vertical rhythm (reduce card padding, header padding, or tagline margins) until it fits, then re-verify.
-3. Footer text is legible and not clipped at the bottom edge.
+### 3. Regenerate + QA
 
-## 3. Out of scope
+- Run the existing build command to overwrite `public/hlpr-care-plans.pdf`
+- Render with `pdftoppm -jpeg -r 150` and visually inspect:
+  - Exactly one page (no spillover)
+  - Footer still anchored at the bottom edge
+  - Trust strip sits flush above footer, no gap
+  - Checks render as single clean strokes on all three cards (Foundation's last two items + Growth's "Priority support" specifically)
+- Copy final PDF to `/mnt/documents/hlpr-care-plans.pdf` and surface as artifact
 
-- No price changes, no deliverable changes (8 graphics/mo stays as written).
-- No changes to existing `Pricing.tsx`.
-- No new sections, no nav changes.
+### Out of scope
 
-## Technical notes
+No price changes. No deliverable changes. No edits to `src/components/landing/CarePlans.tsx` or any other site code — this is PDF-only.
 
-- Files touched: `scripts/build-care-plans-pdf.py`, `src/components/landing/CarePlans.tsx`, regenerated `public/hlpr-care-plans.pdf`.
-- Regeneration: `python3 scripts/build-care-plans-pdf.py public/hlpr-care-plans.pdf`, then `pdftoppm -jpeg -r 150 public/hlpr-care-plans.pdf /tmp/care` and inspect `/tmp/care-*.jpg`.
-- Also copy the final PDF to `/mnt/documents/hlpr-care-plans.pdf` and surface it as a `<presentation-artifact>` so you can download and forward it as-is.
+### Files touched
+
+- `scripts/build-care-plans-pdf.py` (edit HTML template)
+- `public/hlpr-care-plans.pdf` (regenerated)

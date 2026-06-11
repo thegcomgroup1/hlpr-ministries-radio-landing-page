@@ -27,9 +27,11 @@ HTML = r"""<!doctype html>
   .price .per { font-family: 'Inter', sans-serif; font-size: 9pt; font-weight: 500; color: #5A6A85; }
   .plus { font-size: 8.5pt; font-weight: 600; color: #2E5FA3; margin: 10px 0 4px; }
   ul { list-style: none; padding: 0; margin: 8px 0 0; font-size: 9pt; line-height: 1.45; }
-  ul li { display: flex; gap: 6px; padding: 3px 0; }
-  ul li::before { content: ""; flex: 0 0 12px; height: 12px; margin-top: 3px; background: #2E5FA3; -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M13.5 4.5l-7 7L2.5 7.5' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / contain; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M13.5 4.5l-7 7L2.5 7.5' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / contain; }
+  ul li { display: flex; gap: 6px; padding: 3px 0; align-items: flex-start; }
+  ul li svg.check { flex: 0 0 12px; width: 12px; height: 12px; margin-top: 3px; display: block; }
   .tagline { text-align: center; font-style: italic; color: #1B2A4A; font-size: 10pt; margin: 0.25in 0 0.15in; }
+  .trust { background: #EEF3FA; border-top: 1px solid #DCE6F4; text-align: center; padding: 0.22in 0.6in; font-size: 10.5pt; color: #1B2A4A; line-height: 1.45; }
+  .trust strong { font-weight: 700; }
   .footer { background: #1B2A4A; color: #DCE6F4; text-align: center; padding: 0.22in 0.5in; font-size: 9pt; }
   .footer strong { color: #fff; font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 0.3px; }
 </style></head>
