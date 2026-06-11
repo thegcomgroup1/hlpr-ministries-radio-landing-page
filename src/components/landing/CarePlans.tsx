@@ -29,7 +29,7 @@ const CARE_PLANS: CarePlan[] = [
   },
   {
     name: "Growth",
-    label: "Most churches start here.",
+    label: "For churches building their presence.",
     price: "$249.99",
     cadence: "/mo",
     plus: "Everything in Foundation, plus:",
@@ -122,9 +122,9 @@ export const CarePlans = () => {
               )}
             >
               {tier.mostPopular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-brand-navy px-3 py-1 text-xs font-semibold text-brand-navy-foreground">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-brand-navy px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-navy-foreground">
                   <Star className="h-3 w-3 fill-brand-amber text-brand-amber" aria-hidden />
-                  Most Popular
+                  Recommended
                 </div>
               )}
 

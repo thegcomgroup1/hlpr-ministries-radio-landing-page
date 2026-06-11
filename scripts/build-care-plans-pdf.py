@@ -52,9 +52,9 @@ HTML = r"""<!doctype html>
         </ul>
       </div>
       <div class="card elevated">
-        <span class="badge">Most Popular</span>
+        <span class="badge">Recommended</span>
         <h2 class="tier-name">Growth</h2>
-        <div class="tier-label">Most churches start here.</div>
+        <div class="tier-label">For churches building their presence.</div>
         <div class="price">$249.99<span class="per"> /mo</span></div>
         <div class="plus">Everything in Foundation, plus:</div>
         <ul>
