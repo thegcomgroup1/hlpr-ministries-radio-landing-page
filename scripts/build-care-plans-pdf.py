@@ -13,23 +13,23 @@ HTML = r"""<!doctype html>
   * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; padding: 0; width: 8.5in; height: 11in; font-family: 'Inter', sans-serif; color: #1B2A4A; }
   body { display: flex; flex-direction: column; }
-  .header { background: #1B2A4A; color: #fff; padding: 0.45in 0.55in 0.4in; }
-  .header h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 32pt; margin: 0; letter-spacing: -0.5px; }
-  .header p { margin: 0.1in 0 0; font-size: 10.5pt; line-height: 1.4; color: #DCE6F4; max-width: 6.6in; }
-  .body { flex: 1; padding: 0.35in 0.45in 0.2in; display: flex; flex-direction: column; }
+  .header { background: #1B2A4A; color: #fff; padding: 0.6in 0.55in 0.55in; }
+  .header h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 34pt; margin: 0; letter-spacing: -0.5px; }
+  .header p { margin: 0.14in 0 0; font-size: 11pt; line-height: 1.5; color: #DCE6F4; max-width: 6.6in; }
+  .body { flex: 1; padding: 0.5in 0.45in 0.25in; display: flex; flex-direction: column; justify-content: space-between; }
   .cols { display: grid; grid-template-columns: 1fr 1.08fr 1fr; gap: 0.18in; align-items: stretch; }
-  .card { background: #EEF3FA; border: 1px solid #DCE6F4; border-radius: 10px; padding: 0.28in 0.24in; display: flex; flex-direction: column; position: relative; }
+  .card { background: #EEF3FA; border: 1px solid #DCE6F4; border-radius: 10px; padding: 0.4in 0.28in 0.45in; display: flex; flex-direction: column; position: relative; }
   .card.elevated { background: #fff; border: 2px solid #2E5FA3; box-shadow: 0 8px 18px rgba(27,42,74,0.08); transform: translateY(-6px); }
   .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #2E5FA3; color: #fff; font-size: 7.5pt; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
-  .tier-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 17pt; margin: 0; }
-  .tier-label { font-size: 8.5pt; color: #5A6A85; margin: 2px 0 8px; font-style: italic; }
-  .price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 22pt; color: #1B2A4A; line-height: 1; }
+  .tier-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18pt; margin: 0; }
+  .tier-label { font-size: 8.5pt; color: #5A6A85; margin: 3px 0 12px; font-style: italic; }
+  .price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24pt; color: #1B2A4A; line-height: 1; }
   .price .per { font-family: 'Inter', sans-serif; font-size: 9pt; font-weight: 500; color: #5A6A85; }
-  .plus { font-size: 8.5pt; font-weight: 600; color: #2E5FA3; margin: 10px 0 4px; }
-  ul { list-style: none; padding: 0; margin: 8px 0 0; font-size: 9pt; line-height: 1.45; }
-  ul li { display: flex; gap: 6px; padding: 3px 0; align-items: flex-start; }
-  ul li svg.check { flex: 0 0 12px; width: 12px; height: 12px; margin-top: 3px; display: block; }
-  .tagline { text-align: center; font-style: italic; color: #1B2A4A; font-size: 10pt; margin: 0.25in 0 0.15in; margin-top: auto; padding-top: 0.25in; }
+  .plus { font-size: 8.5pt; font-weight: 600; color: #2E5FA3; margin: 12px 0 4px; }
+  ul { list-style: none; padding: 0; margin: 10px 0 0; font-size: 9.5pt; line-height: 1.5; }
+  ul li { display: flex; gap: 7px; padding: 4px 0; align-items: flex-start; }
+  ul li svg.check { flex: 0 0 13px; width: 13px; height: 13px; margin-top: 3px; display: block; }
+  .tagline { text-align: center; font-style: italic; color: #1B2A4A; font-size: 10.5pt; margin: 0.35in 0 0; }
   .trust { background: #EEF3FA; border-top: 1px solid #DCE6F4; text-align: center; padding: 0.22in 0.6in; font-size: 10.5pt; color: #1B2A4A; line-height: 1.45; }
   .trust strong { font-weight: 700; }
   .footer { background: #1B2A4A; color: #DCE6F4; text-align: center; padding: 0.22in 0.5in; font-size: 9pt; }
