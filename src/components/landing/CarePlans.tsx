@@ -3,7 +3,17 @@ import { CtaButton } from "./CtaButton";
 import { BUSINESS } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-const CARE_PLANS = [
+type CarePlan = {
+  name: string;
+  label: string;
+  price: string;
+  cadence: string;
+  plus: string | null;
+  features: string[];
+  mostPopular?: boolean;
+};
+
+const CARE_PLANS: CarePlan[] = [
   {
     name: "Foundation",
     label: "The essentials.",
@@ -44,7 +54,7 @@ const CARE_PLANS = [
       "Dedicated team member",
     ],
   },
-] as const;
+];
 
 export const CarePlans = () => {
   return (
