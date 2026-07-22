@@ -48,7 +48,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        <ConsentBanner />
+        {!isRadioSubdomain() && typeof window !== "undefined" && window.location.pathname !== "/radio" && <ConsentBanner />}
       </TooltipProvider>
     </QueryClientProvider>
   );
