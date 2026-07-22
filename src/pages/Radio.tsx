@@ -39,7 +39,7 @@ function useUtm() {
 
 function LeadForm({ id }: { id: string }) {
   const utm = useUtm();
-  const [values, setValues] = useState({ name: "", church_name: "", contact: "" });
+  const [values, setValues] = useState({ name: "", church_name: "", email: "", phone: "" });
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -54,10 +54,14 @@ function LeadForm({ id }: { id: string }) {
     }
     setSubmitting(true);
     const data = parsed.data as LeadInput;
+    const contactParts = [
+      data.email ? `email: ${data.email}` : null,
+      data.phone ? `phone: ${data.phone}` : null,
+    ].filter(Boolean);
     const { error: dbError } = await supabase.from("leads").insert({
       name: data.name,
       church_name: data.church_name,
-      contact: data.contact,
+      contact: contactParts.join(" · "),
       source: "radio",
       utm_source: utm.utm_source ?? null,
       utm_medium: utm.utm_medium ?? null,
@@ -93,6 +97,12 @@ function LeadForm({ id }: { id: string }) {
       className="rounded-2xl bg-white p-5 shadow-lg ring-1 ring-black/5 md:p-7"
       noValidate
     >
+      <div className="mb-4">
+        <p className="font-serif text-xl text-[#1B2A4A] md:text-2xl">
+          Request your free preview
+        </p>
+        <p className="mt-1 text-sm text-slate-600">Takes 30 seconds.</p>
+      </div>
       <div className="space-y-4">
         <div>
           <Label htmlFor="name" className="text-sm font-medium text-[#1B2A4A]">
@@ -122,20 +132,39 @@ function LeadForm({ id }: { id: string }) {
             className="mt-1 h-12 text-base"
           />
         </div>
-        <div>
-          <Label htmlFor="contact" className="text-sm font-medium text-[#1B2A4A]">
-            Email or phone
-          </Label>
-          <Input
-            id="contact"
-            autoComplete="email"
-            required
-            maxLength={200}
-            value={values.contact}
-            onChange={(e) => setValues((v) => ({ ...v, contact: e.target.value }))}
-            className="mt-1 h-12 text-base"
-          />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <Label htmlFor="email" className="text-sm font-medium text-[#1B2A4A]">
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              autoComplete="email"
+              maxLength={200}
+              value={values.email}
+              onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
+              className="mt-1 h-12 text-base"
+            />
+          </div>
+          <div>
+            <Label htmlFor="phone" className="text-sm font-medium text-[#1B2A4A]">
+              Phone
+            </Label>
+            <Input
+              id="phone"
+              type="tel"
+              autoComplete="tel"
+              maxLength={50}
+              value={values.phone}
+              onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value }))}
+              className="mt-1 h-12 text-base"
+            />
+          </div>
         </div>
+        <p className="text-xs text-slate-600">
+          Enter whichever's easiest — we just need one way to reach you.
+        </p>
       </div>
       {error && <p className="mt-3 text-sm text-rose-600">{error}</p>}
       <Button
