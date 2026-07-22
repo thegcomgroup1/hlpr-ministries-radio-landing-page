@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import hlprLogo from "@/assets/hlpr-logo-radio.png.asset.json";
 
 const leadSchema = z.object({
   name: z.string().trim().min(1, "Please enter your name").max(100),
