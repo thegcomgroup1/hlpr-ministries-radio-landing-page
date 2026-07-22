@@ -228,7 +228,7 @@ export default function Radio() {
                 Get a free preview of your church's new website.
               </h1>
               <p className="mt-4 text-lg text-white/85 md:text-xl">
-                No cost, no obligation, and it's yours to keep — even if we never
+                No cost, no obligation, and it's <strong className="font-semibold text-white">yours to keep</strong> — even if we never
                 work together.
               </p>
             </div>
@@ -257,7 +257,7 @@ export default function Radio() {
                   text: "A real homepage designed for your church — not a template.",
                 },
                 {
-                  icon: "☏",
+                  icon: "▮",
                   text: "Built to work on phones, where people find you first.",
                 },
                 {
