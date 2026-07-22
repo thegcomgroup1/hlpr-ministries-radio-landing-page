@@ -7,11 +7,21 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import hlprLogo from "@/assets/hlpr-logo-radio.png.asset.json";
 
-const leadSchema = z.object({
-  name: z.string().trim().min(1, "Please enter your name").max(100),
-  church_name: z.string().trim().min(1, "Please enter your church name").max(200),
-  contact: z.string().trim().min(3, "Please enter an email or phone").max(200),
-});
+const leadSchema = z
+  .object({
+    name: z.string().trim().min(1, "Please enter your name").max(100),
+    church_name: z.string().trim().min(1, "Please enter your church name").max(200),
+    email: z.string().trim().max(200).optional().or(z.literal("")),
+    phone: z.string().trim().max(50).optional().or(z.literal("")),
+  })
+  .refine((v) => (v.email && v.email.length >= 3) || (v.phone && v.phone.length >= 7), {
+    message: "Please enter an email or phone so we can reach you.",
+    path: ["email"],
+  })
+  .refine((v) => !v.email || /^\S+@\S+\.\S+$/.test(v.email), {
+    message: "That email doesn't look right.",
+    path: ["email"],
+  });
 type LeadInput = z.infer<typeof leadSchema>;
 
 function useUtm() {
