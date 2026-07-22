@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const leadSchema = z
-  .object({
-    name: z.string().trim().min(1, "Please enter your name").max(100),
-    church_name: z.string().trim().min(1, "Please enter your church name").max(200),
-    contact: z.string().trim().min(3, "Please enter an email or phone").max(200),
-  });
+const leadSchema = z.object({
+  name: z.string().trim().min(1, "Please enter your name").max(100),
+  church_name: z.string().trim().min(1, "Please enter your church name").max(200),
+  contact: z.string().trim().min(3, "Please enter an email or phone").max(200),
+});
+type LeadInput = z.infer<typeof leadSchema>;
 
 function useUtm() {
   return useMemo(() => {
