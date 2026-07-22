@@ -56,7 +56,7 @@ function LeadForm({ id }: { id: string }) {
     });
     setSubmitting(false);
     if (dbError) {
-      setError("Something went wrong. Please try again or call 302.550.8521.");
+      setError("Something went wrong. Please try again or call 302.922.1428.");
       return;
     }
     setDone(true);
@@ -279,8 +279,8 @@ export default function Radio() {
           <p>hlpr Ministries · Named for the Holy Spirit, our Helper.</p>
           <p className="mt-2">
             Prefer to talk?{" "}
-            <a href="tel:+13025508521" className="underline text-white">
-              Call 302.550.8521
+            <a href="tel:+13029221428" className="underline text-white">
+              Call 302.922.1428
             </a>
           </p>
         </footer>
