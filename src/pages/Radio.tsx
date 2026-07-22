@@ -42,10 +42,16 @@ function LeadForm({ id }: { id: string }) {
       return;
     }
     setSubmitting(true);
+    const data = parsed.data as LeadInput;
     const { error: dbError } = await supabase.from("leads").insert({
-      ...parsed.data,
+      name: data.name,
+      church_name: data.church_name,
+      contact: data.contact,
       source: "radio",
-      ...utm,
+      utm_source: utm.utm_source ?? null,
+      utm_medium: utm.utm_medium ?? null,
+      utm_campaign: utm.utm_campaign ?? null,
+      utm_content: utm.utm_content ?? null,
     });
     setSubmitting(false);
     if (dbError) {
