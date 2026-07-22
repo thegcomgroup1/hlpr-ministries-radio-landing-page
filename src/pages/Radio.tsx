@@ -254,26 +254,26 @@ export default function Radio() {
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {[
                 {
-                  icon: "✦",
+                  Icon: Sparkles,
                   text: "A real homepage designed for your church — not a template.",
                 },
                 {
-                  icon: "▮",
+                  Icon: Smartphone,
                   text: "Built to work on phones, where people find you first.",
                 },
                 {
-                  icon: "✉",
+                  Icon: MapPin,
                   text: "Service times, location, and an easy way for first-time visitors to reach out.",
                 },
-              ].map((item) => (
+              ].map(({ Icon, text }) => (
                 <div
-                  key={item.text}
+                  key={text}
                   className="rounded-xl bg-white/5 p-6 text-center ring-1 ring-white/10"
                 >
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#2E5FA3] text-2xl">
-                    {item.icon}
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#2E5FA3]">
+                    <Icon className="h-6 w-6 text-white" aria-hidden />
                   </div>
-                  <p className="mt-4 text-base text-white/90">{item.text}</p>
+                  <p className="mt-4 text-base text-white/90">{text}</p>
                 </div>
               ))}
             </div>
