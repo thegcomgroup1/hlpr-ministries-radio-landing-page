@@ -17,6 +17,12 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
+function isRadioSubdomain() {
+  if (typeof window === "undefined") return false;
+  const host = window.location.hostname.toLowerCase();
+  return host === "radio.hlpr.io" || host.startsWith("radio.");
+}
+
 const App = () => {
   useEffect(() => {
     if (getConsent() === "accepted") loadClarity();
@@ -32,7 +38,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={isRadioSubdomain() ? <Radio /> : <Index />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/blog" element={<Blog />} />

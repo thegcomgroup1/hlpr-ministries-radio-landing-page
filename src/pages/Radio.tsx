@@ -172,9 +172,9 @@ export default function Radio() {
             <img
               src={hlprLogo.url}
               alt="hlpr"
-              width={96}
-              height={40}
-              className="h-9 w-auto md:h-10"
+              width={160}
+              height={66}
+              className="h-14 w-auto md:h-16"
             />
           </div>
         </header>
