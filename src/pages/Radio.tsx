@@ -1,17 +1,28 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { z } from "zod";
+import { Sparkles, Smartphone, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import hlprLogo from "@/assets/hlpr-logo-radio.png.asset.json";
 
-const leadSchema = z.object({
-  name: z.string().trim().min(1, "Please enter your name").max(100),
-  church_name: z.string().trim().min(1, "Please enter your church name").max(200),
-  contact: z.string().trim().min(3, "Please enter an email or phone").max(200),
-});
+const leadSchema = z
+  .object({
+    name: z.string().trim().min(1, "Please enter your name").max(100),
+    church_name: z.string().trim().min(1, "Please enter your church name").max(200),
+    email: z.string().trim().max(200).optional().or(z.literal("")),
+    phone: z.string().trim().max(50).optional().or(z.literal("")),
+  })
+  .refine((v) => (v.email && v.email.length >= 3) || (v.phone && v.phone.length >= 7), {
+    message: "Please enter an email or phone so we can reach you.",
+    path: ["email"],
+  })
+  .refine((v) => !v.email || /^\S+@\S+\.\S+$/.test(v.email), {
+    message: "That email doesn't look right.",
+    path: ["email"],
+  });
 type LeadInput = z.infer<typeof leadSchema>;
 
 function useUtm() {
@@ -29,7 +40,7 @@ function useUtm() {
 
 function LeadForm({ id }: { id: string }) {
   const utm = useUtm();
-  const [values, setValues] = useState({ name: "", church_name: "", contact: "" });
+  const [values, setValues] = useState({ name: "", church_name: "", email: "", phone: "" });
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -44,10 +55,14 @@ function LeadForm({ id }: { id: string }) {
     }
     setSubmitting(true);
     const data = parsed.data as LeadInput;
+    const contactParts = [
+      data.email ? `email: ${data.email}` : null,
+      data.phone ? `phone: ${data.phone}` : null,
+    ].filter(Boolean);
     const { error: dbError } = await supabase.from("leads").insert({
       name: data.name,
       church_name: data.church_name,
-      contact: data.contact,
+      contact: contactParts.join(" · "),
       source: "radio",
       utm_source: utm.utm_source ?? null,
       utm_medium: utm.utm_medium ?? null,
@@ -83,6 +98,12 @@ function LeadForm({ id }: { id: string }) {
       className="rounded-2xl bg-white p-5 shadow-lg ring-1 ring-black/5 md:p-7"
       noValidate
     >
+      <div className="mb-4">
+        <p className="font-serif text-xl text-[#1B2A4A] md:text-2xl">
+          Request your free preview
+        </p>
+        <p className="mt-1 text-sm text-slate-600">Takes 30 seconds.</p>
+      </div>
       <div className="space-y-4">
         <div>
           <Label htmlFor="name" className="text-sm font-medium text-[#1B2A4A]">
@@ -112,20 +133,39 @@ function LeadForm({ id }: { id: string }) {
             className="mt-1 h-12 text-base"
           />
         </div>
-        <div>
-          <Label htmlFor="contact" className="text-sm font-medium text-[#1B2A4A]">
-            Email or phone
-          </Label>
-          <Input
-            id="contact"
-            autoComplete="email"
-            required
-            maxLength={200}
-            value={values.contact}
-            onChange={(e) => setValues((v) => ({ ...v, contact: e.target.value }))}
-            className="mt-1 h-12 text-base"
-          />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <Label htmlFor="email" className="text-sm font-medium text-[#1B2A4A]">
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              autoComplete="email"
+              maxLength={200}
+              value={values.email}
+              onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
+              className="mt-1 h-12 text-base"
+            />
+          </div>
+          <div>
+            <Label htmlFor="phone" className="text-sm font-medium text-[#1B2A4A]">
+              Phone
+            </Label>
+            <Input
+              id="phone"
+              type="tel"
+              autoComplete="tel"
+              maxLength={50}
+              value={values.phone}
+              onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value }))}
+              className="mt-1 h-12 text-base"
+            />
+          </div>
         </div>
+        <p className="text-xs text-slate-600">
+          Enter whichever's easiest — we just need one way to reach you.
+        </p>
       </div>
       {error && <p className="mt-3 text-sm text-rose-600">{error}</p>}
       <Button
@@ -189,7 +229,7 @@ export default function Radio() {
                 Get a free preview of your church's new website.
               </h1>
               <p className="mt-4 text-lg text-white/85 md:text-xl">
-                No cost, no obligation, and it's yours to keep — even if we never
+                No cost, no obligation, and it's <strong className="font-semibold text-white">yours to keep</strong> — even if we never
                 work together.
               </p>
             </div>
@@ -214,26 +254,26 @@ export default function Radio() {
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {[
                 {
-                  icon: "✦",
+                  Icon: Sparkles,
                   text: "A real homepage designed for your church — not a template.",
                 },
                 {
-                  icon: "☏",
+                  Icon: Smartphone,
                   text: "Built to work on phones, where people find you first.",
                 },
                 {
-                  icon: "✉",
+                  Icon: MapPin,
                   text: "Service times, location, and an easy way for first-time visitors to reach out.",
                 },
-              ].map((item) => (
+              ].map(({ Icon, text }) => (
                 <div
-                  key={item.text}
+                  key={text}
                   className="rounded-xl bg-white/5 p-6 text-center ring-1 ring-white/10"
                 >
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#2E5FA3] text-2xl">
-                    {item.icon}
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#2E5FA3]">
+                    <Icon className="h-6 w-6 text-white" aria-hidden />
                   </div>
-                  <p className="mt-4 text-base text-white/90">{item.text}</p>
+                  <p className="mt-4 text-base text-white/90">{text}</p>
                 </div>
               ))}
             </div>
