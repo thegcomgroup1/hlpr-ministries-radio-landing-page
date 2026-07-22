@@ -166,8 +166,20 @@ export default function Radio() {
         <meta name="robots" content="noindex,nofollow" />
       </Helmet>
       <main className="min-h-screen bg-[#1B2A4A] text-white">
+        {/* LOGO */}
+        <header className="px-5 pt-6 md:pt-8">
+          <div className="mx-auto max-w-6xl">
+            <img
+              src={hlprLogo.url}
+              alt="hlpr"
+              width={96}
+              height={40}
+              className="h-9 w-auto md:h-10"
+            />
+          </div>
+        </header>
         {/* HERO */}
-        <section className="px-5 pb-10 pt-8 md:pt-14">
+        <section className="px-5 pb-10 pt-6 md:pt-10">
           <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 md:items-center md:gap-12">
             <div>
               <p className="text-sm uppercase tracking-widest text-[#9DB4DA]">
