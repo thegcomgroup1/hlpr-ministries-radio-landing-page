@@ -240,7 +240,7 @@ export default function Radio() {
               <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
                 Get a free preview of your church's new website.
               </h1>
-              <p className="mt-4 text-lg text-white/85 md:text-xl">
+              <p className="mt-4 text-lg text-white/95 md:text-xl">
                 No cost, no obligation, and it's <strong className="font-semibold text-white">yours to keep</strong> — even if we never
                 work together.
               </p>
@@ -327,7 +327,7 @@ export default function Radio() {
         </section>
 
         {/* FOOTER */}
-        <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-white/70">
+        <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-white/90">
           <p>hlpr Ministries · Named for the Holy Spirit, our Helper.</p>
           <p className="mt-2">
             Prefer to talk?{" "}
