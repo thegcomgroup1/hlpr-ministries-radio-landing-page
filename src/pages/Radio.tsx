@@ -120,11 +120,11 @@ function LeadForm({ id }: { id: string }) {
           />
         </div>
         <div>
-          <Label htmlFor="church" className="text-sm font-medium text-[#1B2A4A]">
+          <Label htmlFor="church_name" className="text-sm font-medium text-[#1B2A4A]">
             Church name
           </Label>
           <Input
-            id="church"
+            id="church_name"
             autoComplete="organization"
             required
             maxLength={200}
@@ -201,9 +201,20 @@ export default function Radio() {
         <title>Free church website preview | hlpr Ministries</title>
         <meta
           name="description"
-          content="Heard us on the radio? Get a free preview of your church's new website. No cost, no obligation."
+          content="Heard us on the radio? Get a free preview of your church's new website — designed for your congregation, mobile-first, no cost and no obligation."
         />
-        <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://freewebsiteforchurches.com/" />
+        <meta property="og:title" content="Free church website preview | hlpr Ministries" />
+        <meta
+          property="og:description"
+          content="Heard us on the radio? Get a free preview of your church's new website — designed for your congregation, mobile-first, no cost and no obligation."
+        />
+        <meta property="og:url" content="https://freewebsiteforchurches.com/" />
+        <meta name="twitter:title" content="Free church website preview | hlpr Ministries" />
+        <meta
+          name="twitter:description"
+          content="Heard us on the radio? Get a free preview of your church's new website — designed for your congregation, mobile-first, no cost and no obligation."
+        />
       </Helmet>
       <main className="min-h-screen bg-[#1B2A4A] text-white">
         {/* LOGO */}
@@ -211,9 +222,10 @@ export default function Radio() {
           <div className="mx-auto max-w-6xl">
             <img
               src={hlprLogo.url}
-              alt="hlpr"
+              alt="hlpr Ministries logo"
               width={160}
               height={66}
+              fetchPriority="high"
               className="h-14 w-auto md:h-16"
             />
           </div>
@@ -228,7 +240,7 @@ export default function Radio() {
               <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
                 Get a free preview of your church's new website.
               </h1>
-              <p className="mt-4 text-lg text-white/85 md:text-xl">
+              <p className="mt-4 text-lg text-white/95 md:text-xl">
                 No cost, no obligation, and it's <strong className="font-semibold text-white">yours to keep</strong> — even if we never
                 work together.
               </p>
@@ -315,7 +327,7 @@ export default function Radio() {
         </section>
 
         {/* FOOTER */}
-        <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-white/70">
+        <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-white/90">
           <p>hlpr Ministries · Named for the Holy Spirit, our Helper.</p>
           <p className="mt-2">
             Prefer to talk?{" "}
